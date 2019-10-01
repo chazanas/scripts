@@ -9,16 +9,6 @@ GROUP_CODE = {
 	False: 2
 }
 
-
-
-
-
-
-
-
-
-
-
 HEAD_STR = {
 	True: 'HEAD',
 	False: 'BRANCH'
