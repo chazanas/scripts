@@ -9,6 +9,16 @@ GROUP_CODE = {
 	False: 2
 }
 
+
+
+
+
+
+
+
+
+
+
 HEAD_STR = {
 	True: 'HEAD',
 	False: 'BRANCH'
@@ -95,12 +105,12 @@ def get_args():
 
 
 
-def conflict_solver(path, 
-					head, 
-					exclude=False, 
-					path_out='', 
-					verbose=True, 
-					check=True, 
+def conflict_solver(path,
+					head,
+					exclude=False,
+					path_out='',
+					verbose=True,
+					check=True,
 					terminal=False):
 	'''(str, bool) -> none
 	gets a conflicted path and undo its conflicts, choosing the first option if
@@ -141,13 +151,13 @@ def conflict_solver(path,
 			out = '{}_managed_{}.{}'.format(filename, HEAD_STR[head], ext)
 
 	if check:
-		save = input('{} {} like {} (s/n)? '.format(CHECK_STR[exclude], 
-													out, 
+		save = input('{} {} like {} (s/n)? '.format(CHECK_STR[exclude],
+													out,
 													HEAD_STR[head]))
 		while save not in list(DO_CHECK.keys()):
 			print('The valid anwsers are {}.'.format(list(DO_CHECK.keys())))
 			save = input('{} {} like {} (s/n)? '.format(CHECK_STR[exclude],
-														out, 
+														out,
 														HEAD_STR[head]))
 		save = DO_CHECK[save]
 	else:
@@ -155,8 +165,8 @@ def conflict_solver(path,
 
 	if save:
 		if verbose:
-			print('{} {} like {}.'.format(VERBOSE_STR[exclude], 
-											out, 
+			print('{} {} like {}.'.format(VERBOSE_STR[exclude],
+											out,
 											HEAD_STR[head]))
 
 		file = open(out, 'w')
@@ -173,6 +183,6 @@ if __name__ == '__main__':
 	path, head, exclude, path_out, verbose, check, terminal = get_args()
 	conflict_solver(path, head, exclude, path_out, verbose, check, terminal)
 
-	
+
 
 
